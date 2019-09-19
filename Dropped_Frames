@@ -1,0 +1,5 @@
+IFI = diff(data(:,1)); %finds time between frames
+plot(IFI) %use this graph to set your threshold
+[PKS LOCS] = findpeaks(IFI,'MinPeakProminence',0.05); %Edit the 0.05 threshold based on plot of IFI. Finds skipped frames
+droppedFrames = LOCS
+data(droppedFrames,:)=[]; %deletes skipped frames
